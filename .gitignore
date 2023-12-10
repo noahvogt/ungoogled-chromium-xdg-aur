@@ -6,3 +6,7 @@ pkg
 *.log
 nohup.out
 *.zip
+# OBS files
+.osc
+_constraints
+_service
