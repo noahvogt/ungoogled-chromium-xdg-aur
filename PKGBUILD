@@ -10,7 +10,7 @@
 # binary version of this package (-bin): github.com/noahvogt/ungoogled-chromium-xdg-bin-aur
 
 pkgname=ungoogled-chromium-xdg
-pkgver=123.0.6312.122
+pkgver=124.0.6367.49
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
@@ -37,9 +37,9 @@ source=(https://commondatastorage.googleapis.com/chromium-browser-official/chrom
         drop-flag-unsupported-by-clang17.patch
         compiler-rt-adjust-paths.patch
         use-oauth2-client-switches-as-default.patch)
-sha256sums=('c883f192af7cb76cf46de4044349645b0fb0b5c42a1c0f7950a24c825c17f885'
+sha256sums=('6670d9c7b306bf9c332fa84696971256f92256d05d2a484b8e0a86cd31a62480'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
-            '488f02af92b148eaa91ad5015b3bf383dfc8618ebafe9c3c250cd4c7f4e27b19'
+            'c2bc4e65ed2a4e23528dd10d5c15bf99f880b7bbb789cc720d451b78098a7e12'
             '3bd35dab1ded5d9e1befa10d5c6c4555fe0a76d909fb724ac57d0bf10cb666c1'
             'b3de01b7df227478687d7517f61a777450dca765756002c80c4915f271e2d961'
             'e393174d7695d0bafed69e868c5fbfecf07aa6969f3b64596d0bae8b067e1711')
@@ -50,7 +50,7 @@ source=(${source[@]}
         no-omnibox-suggestion-autocomplete.patch
         index.html)
 sha256sums=(${sha256sums[@]}
-            'f97e6cd3c4d2e04f5d9a0ea234fe768d6ba0fa9f4ecd5c7b2ca91030a1249078'
+            '41258e1eb5c9523e543c88459fffa2eadc8dd90972a4d4fb4f4172ba3f1c4d23'
             'ff1591fa38e0ede7e883dc7494b813641b7a1a7cb1ded00d9baaee987c1dbea8'
             'a4cdd2b86f32d5302c2792be841ff40d982b19bb58a4e63df9d77f4c706b8665')
 
@@ -76,7 +76,7 @@ source=(${source[@]}
         0001-ozone-wayland-implement-text_input_manager_v3.patch
         0001-ozone-wayland-implement-text_input_manager-fixes.patch)
 sha256sums=(${sha256sums[@]}
-            '41bcd3b62218d02806063f247316c59f2beb899905457ab00bce7ce342f443fd'
+            '05ea216509e82f853d0b036be0d469bc44a3949eb7503b66ace51040b1ddb138'
             '8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f'
             '2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3'
             'd9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285'
@@ -100,7 +100,7 @@ declare -gA _system_libs=(
   [libjpeg]=libjpeg
   [libpng]=libpng
   #[libvpx]=libvpx
-  [libwebp]=libwebp
+  #[libwebp]=libwebp  # //third_party/libavif:libavif_enc needs //third_party/libwebp:libwebp_sharpyuv
   [libxml]=libxml2
   [libxslt]=libxslt
   [opus]=opus
