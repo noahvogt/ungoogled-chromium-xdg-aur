@@ -10,7 +10,7 @@
 # binary version of this package (-bin): github.com/noahvogt/ungoogled-chromium-xdg-bin-aur
 
 pkgname=ungoogled-chromium-xdg
-pkgver=124.0.6367.78
+pkgver=124.0.6367.91
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
@@ -37,7 +37,7 @@ source=(https://commondatastorage.googleapis.com/chromium-browser-official/chrom
         compiler-rt-adjust-paths.patch
         qt-6.7.patch
         use-oauth2-client-switches-as-default.patch)
-sha256sums=('697ea9e8591e0a74deea260a50441711b1ea499ca19e91d6012c5b4d200d1acf'
+sha256sums=('376cdcdb46b23eca7f3e6cdb933f27e73968ffb537258d70be503850bbbf1787'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
             'c2bc4e65ed2a4e23528dd10d5c15bf99f880b7bbb789cc720d451b78098a7e12'
             '3bd35dab1ded5d9e1befa10d5c6c4555fe0a76d909fb724ac57d0bf10cb666c1'
@@ -77,7 +77,7 @@ source=(${source[@]}
         0001-ozone-wayland-implement-text_input_manager_v3.patch
         0001-ozone-wayland-implement-text_input_manager-fixes.patch)
 sha256sums=(${sha256sums[@]}
-            '8dabdfa54e0293790d6299aff28aaeb25d61359b0f99321ddd20df9031877c5b'
+            '128d4cf1f7ef5f4a89a78a07fc6504481086e23fd28f24a7fbcf55bf2725a234'
             '8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f'
             '2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3'
             'd9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285'
