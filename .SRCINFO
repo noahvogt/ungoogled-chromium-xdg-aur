@@ -1,6 +1,6 @@
 pkgbase = ungoogled-chromium-xdg
 	pkgdesc = A lightweight approach to removing Google web service dependency - without creating a useless ~/.pki directory (using pre-releases)
-	pkgver = 124.0.6367.91
+	pkgver = 124.0.6367.118
 	pkgrel = 1
 	url = https://github.com/ungoogled-software/ungoogled-chromium
 	arch = x86_64
@@ -53,14 +53,15 @@ pkgbase = ungoogled-chromium-xdg
 	optdepends = org.freedesktop.secrets: password storage backend on GNOME / Xfce
 	optdepends = kwallet5: support for storing passwords in KWallet on Plasma
 	optdepends = chromium-extension-web-store: Web Store Functionality
-	provides = chromium=124.0.6367.91
-	provides = chromedriver=124.0.6367.91
+	provides = chromium=124.0.6367.118
+	provides = chromedriver=124.0.6367.118
 	conflicts = chromium
 	conflicts = chromedriver
 	options = !lto
-	source = https://commondatastorage.googleapis.com/chromium-browser-official/chromium-124.0.6367.91.tar.xz
+	source = https://commondatastorage.googleapis.com/chromium-browser-official/chromium-124.0.6367.118.tar.xz
 	source = https://github.com/foutrelis/chromium-launcher/archive/v8/chromium-launcher-8.tar.gz
 	source = https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/124/chromium-patches-124.tar.bz2
+	source = fix-a-missing-build-dependency.patch
 	source = drop-flag-unsupported-by-clang17.patch
 	source = compiler-rt-adjust-paths.patch
 	source = qt-6.7.patch
@@ -68,14 +69,15 @@ pkgbase = ungoogled-chromium-xdg
 	source = xdg-basedir.patch
 	source = no-omnibox-suggestion-autocomplete.patch
 	source = index.html
-	source = ungoogled-chromium-124.0.6367.91-1.tar.gz::https://github.com/noahvogt/ungoogled-chromium/archive/refs/tags/124.0.6367.91-1.tar.gz
+	source = ungoogled-chromium-124.0.6367.118-1.tar.gz::https://github.com/noahvogt/ungoogled-chromium/archive/refs/tags/124.0.6367.118-1.tar.gz
 	source = 0001-adjust-buffer-format-order.patch
 	source = 0001-enable-linux-unstable-deb-target.patch
 	source = 0001-ozone-wayland-implement-text_input_manager_v3.patch
 	source = 0001-ozone-wayland-implement-text_input_manager-fixes.patch
-	sha256sums = 376cdcdb46b23eca7f3e6cdb933f27e73968ffb537258d70be503850bbbf1787
+	sha256sums = 8aa5a14aad1234b48b568da9ef23d6e0b1b72d7f4ca5c4039462e54e6ad45d96
 	sha256sums = 213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a
 	sha256sums = c2bc4e65ed2a4e23528dd10d5c15bf99f880b7bbb789cc720d451b78098a7e12
+	sha256sums = 75e1482d1b27c34ebe9d4bf27104fedcc219cdd95ce71fc41e77a486befd3f93
 	sha256sums = 3bd35dab1ded5d9e1befa10d5c6c4555fe0a76d909fb724ac57d0bf10cb666c1
 	sha256sums = b3de01b7df227478687d7517f61a777450dca765756002c80c4915f271e2d961
 	sha256sums = e30623f36c54f4af3a8aa7d9400f7d2bed6ef560f15d665d2aa8fd777cb2565f
@@ -83,7 +85,7 @@ pkgbase = ungoogled-chromium-xdg
 	sha256sums = 41258e1eb5c9523e543c88459fffa2eadc8dd90972a4d4fb4f4172ba3f1c4d23
 	sha256sums = ff1591fa38e0ede7e883dc7494b813641b7a1a7cb1ded00d9baaee987c1dbea8
 	sha256sums = a4cdd2b86f32d5302c2792be841ff40d982b19bb58a4e63df9d77f4c706b8665
-	sha256sums = 128d4cf1f7ef5f4a89a78a07fc6504481086e23fd28f24a7fbcf55bf2725a234
+	sha256sums = f56909f5071bac41c2c727ff217056925922125096d13a0cfcdce231adebe6f1
 	sha256sums = 8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f
 	sha256sums = 2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3
 	sha256sums = d9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285
