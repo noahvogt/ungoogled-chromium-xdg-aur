@@ -10,7 +10,7 @@
 # binary version of this package (-bin): github.com/noahvogt/ungoogled-chromium-xdg-bin-aur
 
 pkgname=ungoogled-chromium-xdg
-pkgver=124.0.6367.118
+pkgver=124.0.6367.155
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
@@ -36,15 +36,13 @@ source=(https://commondatastorage.googleapis.com/chromium-browser-official/chrom
         fix-a-missing-build-dependency.patch
         drop-flag-unsupported-by-clang17.patch
         compiler-rt-adjust-paths.patch
-        qt-6.7.patch
         use-oauth2-client-switches-as-default.patch)
-sha256sums=('8aa5a14aad1234b48b568da9ef23d6e0b1b72d7f4ca5c4039462e54e6ad45d96'
+sha256sums=('667d5b3522238b2458816b7e409540e47e9e70c8f2921f64342408fa2323bbc4'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
             'c2bc4e65ed2a4e23528dd10d5c15bf99f880b7bbb789cc720d451b78098a7e12'
             '75e1482d1b27c34ebe9d4bf27104fedcc219cdd95ce71fc41e77a486befd3f93'
             '3bd35dab1ded5d9e1befa10d5c6c4555fe0a76d909fb724ac57d0bf10cb666c1'
             'b3de01b7df227478687d7517f61a777450dca765756002c80c4915f271e2d961'
-            'e30623f36c54f4af3a8aa7d9400f7d2bed6ef560f15d665d2aa8fd777cb2565f'
             'e393174d7695d0bafed69e868c5fbfecf07aa6969f3b64596d0bae8b067e1711')
 
 # ungoogled-chromium-xdg patches
@@ -79,7 +77,7 @@ source=(${source[@]}
         0001-ozone-wayland-implement-text_input_manager_v3.patch
         0001-ozone-wayland-implement-text_input_manager-fixes.patch)
 sha256sums=(${sha256sums[@]}
-            'f56909f5071bac41c2c727ff217056925922125096d13a0cfcdce231adebe6f1'
+            '51b8c00c225e49ca2db0e842da87ae9a65cc5035fa3ecea2fa5f8ed389234d80'
             '8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f'
             '2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3'
             'd9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285'
@@ -156,28 +154,11 @@ prepare() {
   # Allow libclang_rt.builtins from compiler-rt >= 16 to be used
   patch -Np1 -i ../compiler-rt-adjust-paths.patch
 
-  # Fix build with Qt 6.7
-  patch -Np1 -i ../qt-6.7.patch
-
   # Fixes for building with libstdc++ instead of libc++
   patch -Np1 -i ../chromium-patches-*/chromium-117-material-color-include.patch
 
 
   # Custom Patches
-  sed -i '/^bool IsHevcProfileSupported(const VideoType& type) {$/{s++bool IsHevcProfileSupported(const VideoType\& type) { return true;+;h};${x;/./{x;q0};x;q1}' \
-			media/base/supported_types.cc
-
-  # Implement text_input_manager_v3
-  # https://chromium-review.googlesource.com/c/chromium/src/+/3750452
-  patch -Np1 -i ../0001-ozone-wayland-implement-text_input_manager_v3.patch
-  patch -Np1 -i ../0001-ozone-wayland-implement-text_input_manager-fixes.patch
-
-  # Enable VAAPI on Wayland
-  # https://discourse.ubuntu.com/t/chromium-hardware-accelerated-build-for-intel-based-platforms-available-for-beta-testing/35625
-  # https://git.launchpad.net/~chromium-team/chromium-browser/+git/snap-from-source/
-  # patch -Np1 -i ../0001-enable-linux-unstable-deb-target.patch
-  # patch -Np1 -i ../0001-adjust-buffer-format-order.patch
-  # patch -Np1 -i ../0001-vaapi-flag-ozone-wayland.patch
 
   # move ~/.pki directory to ${XDG_DATA_HOME:-$HOME/.local}/share/pki
   patch -p1 -i ../xdg-basedir.patch
@@ -408,4 +389,4 @@ package() {
   install -Dm644 "${srcdir}/index.html" "$pkgdir/usr/share/ungoogled-chromium/index.html"
 }
 
-# vim:set ts=2 sw=2 et:
+# vim:set ts=2 sw=2 et ft=sh:
