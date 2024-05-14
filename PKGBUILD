@@ -121,7 +121,6 @@ depends+=(${_system_libs[@]})
 #
 # Starting with Chromium 89 (2021-03-02) the OAuth2 credentials have been left
 # out: https://archlinux.org/news/chromium-losing-sync-support-in-early-march/
-_google_api_key=AIzaSyDwr302FpOSkGRpLlUpPThNTDPbXcIn_FM
 
 prepare() {
   if (( _manual_clone )); then
@@ -253,12 +252,20 @@ build() {
     'enable_nacl=false'
     'use_qt6=true'
     'moc_qt6_path="/usr/lib/qt6"'
-    "google_api_key=\"$_google_api_key\""
+    'use_vaapi=true'
+    'enable_platform_hevc=true'
+    'enable_hevc_parser_and_hw_decoder=true'
   )
 
   if [[ -n ${_system_libs[icu]+set} ]]; then
     _flags+=('icu_use_data_file=false')
   fi
+
+  # Append ungoogled chromium flags to _flags array
+  # _ungoogled_repo="$srcdir/ungoogled-chromium-update"
+  _ungoogled_repo="$srcdir/${pkgname%-*}-$_uc_ver"
+  readarray -t -O ${#_flags[@]} _flags < "${_ungoogled_repo}/flags.gn"
+
 
   if (( _system_clang )); then
      local _clang_version=$(
@@ -280,11 +287,6 @@ build() {
       "rustc_version=\"$(rustc --version)\""
     )
   fi
-
-  # Append ungoogled chromium flags to _flags array
-  # _ungoogled_repo="$srcdir/ungoogled-chromium-update"
-  _ungoogled_repo="$srcdir/${pkgname%-*}-$_uc_ver"
-  readarray -t -O ${#_flags[@]} _flags < "${_ungoogled_repo}/flags.gn"
 
   # Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
   CFLAGS+='   -Wno-builtin-macro-redefined'
