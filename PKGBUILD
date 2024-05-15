@@ -75,13 +75,15 @@ source=(${source[@]}
         0001-adjust-buffer-format-order.patch
         0001-enable-linux-unstable-deb-target.patch
         0001-ozone-wayland-implement-text_input_manager_v3.patch
-        0001-ozone-wayland-implement-text_input_manager-fixes.patch)
+        0001-ozone-wayland-implement-text_input_manager-fixes.patch
+        ninja-out-of-order-generation-fix.patch)
 sha256sums=(${sha256sums[@]}
             '8f4ae7ed5e3a9e9322dd57285ea00866ce535260cb8045773a2121e239c746f4'
             '8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f'
             '2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3'
             'd9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285'
-            'a2da75d0c20529f2d635050e0662941c0820264ea9371eb900b9d90b5968fa6a')
+            'a2da75d0c20529f2d635050e0662941c0820264ea9371eb900b9d90b5968fa6a'
+            '813e6a1209ab72e4ab34f5f062412087e9664189d7b8f1dc1d0bb9481c574c45')
 
 # Possible replacements are listed in build/linux/unbundle/replace_gn_files.py
 # Keys are the names in the above script; values are the dependencies in Arch
@@ -152,6 +154,9 @@ prepare() {
 
   # Allow libclang_rt.builtins from compiler-rt >= 16 to be used
   patch -Np1 -i ../compiler-rt-adjust-paths.patch
+
+  # Fix ninja 1.12 generating files out of order
+  patch -Np1 -i ../ninja-out-of-order-generation-fix.patch
 
   # Fixes for building with libstdc++ instead of libc++
   patch -Np1 -i ../chromium-patches-*/chromium-117-material-color-include.patch
@@ -247,7 +252,6 @@ build() {
     'use_custom_libcxx=true' # https://github.com/llvm/llvm-project/issues/61705
     'use_sysroot=false'
     'use_system_libffi=true'
-    'enable_hangout_services_extension=true'
     'enable_widevine=true'
     'enable_nacl=false'
     'use_qt6=true'
