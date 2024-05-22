@@ -10,7 +10,7 @@
 # binary version of this package (-bin): github.com/noahvogt/ungoogled-chromium-xdg-bin-aur
 
 pkgname=ungoogled-chromium-xdg
-pkgver=125.0.6422.60
+pkgver=125.0.6422.76
 pkgrel=1
 _launcher_ver=8
 _manual_clone=0
@@ -37,7 +37,7 @@ source=(https://commondatastorage.googleapis.com/chromium-browser-official/chrom
         drop-flag-unsupported-by-clang17.patch
         compiler-rt-adjust-paths.patch
         use-oauth2-client-switches-as-default.patch)
-sha256sums=('93f5850101225945d7ec80959b38460e6a63777055bf2d9e893860c33cb60080'
+sha256sums=('4167218463d2848f4a0fe35f60d062a8e7e5c7ce5bc8c8c2260a80186b1deccf'
             '213e50f48b67feb4441078d50b0fd431df34323be15be97c55302d3fdac4483a'
             '58c8787bd215c4818893405dbb88c17b08bf13039fb5fbcb9dfe95ac51a86f3e'
             '75e1482d1b27c34ebe9d4bf27104fedcc219cdd95ce71fc41e77a486befd3f93'
@@ -78,7 +78,7 @@ source=(${source[@]}
         0001-ozone-wayland-implement-text_input_manager-fixes.patch
         ninja-out-of-order-generation-fix.patch)
 sha256sums=(${sha256sums[@]}
-            '306409b826eeaed7484ebc8283eb538f51d364ef6ceeb35c178a44ff18dfb6e6'
+            'bd9fe13200b13a1bedcf74533b8c285be39e1ea278b8562f3ee3da9883f6ae2e'
             '8ba5c67b7eb6cacd2dbbc29e6766169f0fca3bbb07779b1a0a76c913f17d343f'
             '2a44756404e13c97d000cc0d859604d6848163998ea2f838b3b9bb2c840967e3'
             'd9974ddb50777be428fd0fa1e01ffe4b587065ba6adefea33678e1b3e25d1285'
